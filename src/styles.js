@@ -38,6 +38,7 @@ const defaultTheme = {
     boxSizing     : 'border-box',
     letterSpacing : 0,
     color         : '#000000',
+    verticalAlign : 'top'
   },
 
   Day : {
