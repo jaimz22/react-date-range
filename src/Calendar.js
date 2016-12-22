@@ -199,7 +199,10 @@ class Calendar extends Component {
     }
 
     // Next month's days
-    const remainingCells = 42 - days.length; // 42cells = 7days * 6rows
+    var remainingCells = 42 - days.length; // 42cells = 7days * 6rows
+    if (remainingCells >= 7) {
+      remainingCells = remainingCells-7;
+    }
     for (let i = 1; i <= remainingCells; i++ ) {
       const dayMoment  = nextMonth.clone().date(i);
       days.push({ dayMoment, isPassive : true });
