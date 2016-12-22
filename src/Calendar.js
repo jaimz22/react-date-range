@@ -42,10 +42,16 @@ class Calendar extends Component {
       moment.locale(locale);
     }
 
-    const date = parseInput(props.date, format, 'startOf')
+    const date = parseInput(props.date, format, 'startOf');
+    let shownDateVal = (shownDate || range && range['endDate'] || date).clone().add(offset, 'months');
+
+    if (offset == -1 && !props.link && !shownDate && range['startDate']) {
+        shownDateVal = range['startDate'];
+    }
+
     const state = {
       date,
-      shownDate : (shownDate || range && range['endDate'] || date).clone().add(offset, 'months'),
+      shownDate : shownDateVal,
       firstDayOfWeek: (firstDayOfWeek || moment.localeData().firstDayOfWeek()),
     }
 
